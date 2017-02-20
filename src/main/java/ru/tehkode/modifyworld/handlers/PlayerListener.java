@@ -188,23 +188,16 @@ public class PlayerListener extends ModifyworldListener {
 			return;
 		}
 
-		ItemStack take = event.getCurrentItem();
-
-		String action;
-		ItemStack item;
-
-		if (take == null) {
-			action = "put";
-			item = event.getCursor();
-		} else {
-			action = "take";
-			item = take;
+		Player player = (Player) event.getWhoClicked();
+		if (permissionDenied(player, "modifyworld.items", "put", event.getCursor(), "of", event.getInventory().getType())) {
+			event.setCancelled(true);
 		}
 
-		Player player = (Player) event.getWhoClicked();
-
-		if (permissionDenied(player, "modifyworld.items", action, item, "of", event.getInventory().getType())) {
-			event.setCancelled(true);
+		ItemStack take = event.getCurrentItem();
+		if (take != null) {
+			if (permissionDenied(player, "modifyworld.items", "take", take, "of", event.getInventory().getType())) {
+				event.setCancelled(true);
+			}
 		}
 	}
 
