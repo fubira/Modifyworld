@@ -189,18 +189,18 @@ public class PlayerListener extends ModifyworldListener {
 		}
 
 		Player player = (Player) event.getWhoClicked();
-		Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] Player: " + player.getName() + " Inventory: " + event.getInventory().getType() + " Slot:" + event.getSlot() +"[" + event.getSlotType() + "]" );
+		// Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] Player: " + player.getName() + " Inventory: " + event.getInventory().getType() + " Slot:" + event.getSlot() +"[" + event.getSlotType() + "]" );
 
 		if (permissionDenied(player, "modifyworld.items", "put", event.getCursor(), "of", event.getInventory().getType())) {
-			Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] Player: " + player.getName() + " has not PUT permission.");
+			// Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] Player: " + player.getName() + " has not PUT permission.");
 			event.setCancelled(true);
 		}
 
 		ItemStack take = event.getCurrentItem();
-		Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] CurrentItem: " + take);
+		// Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] CurrentItem: " + take);
 		if (take != null) {
 			if (permissionDenied(player, "modifyworld.items", "take", take, "of", event.getInventory().getType())) {
-				Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] Player: " + player.getName() + " has not TAKE permission.");
+				// Logger.getLogger("Minecraft").info("[onPlayerInventoryClick] Player: " + player.getName() + " has not TAKE permission.");
 				event.setCancelled(true);
 			}
 		}
