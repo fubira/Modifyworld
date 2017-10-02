@@ -217,10 +217,10 @@ public class PlayerListener extends ModifyworldListener {
 		Player player = (Player) event.getWhoClicked();
 
 		int targetSlot = player.getInventory().getHeldItemSlot();
-		Logger.getLogger("Minecraft").info("[onPlayerInventoryEvent] Player: " + player.getName() + " Inventory: " + event.getInventory().getType() + " Slot:" + event.getSlot() +"[" + event.getSlotType() + "]" + " TargetSlot:" + targetSlot);
+		// Logger.getLogger("Minecraft").info("[onPlayerInventoryEvent] Player: " + player.getName() + " Inventory: " + event.getInventory().getType() + " Slot:" + event.getSlot() +"[" + event.getSlotType() + "]" + " TargetSlot:" + targetSlot);
 
 		if (event.getSlot() == targetSlot && permissionDenied(player, "modifyworld.items.hold", item)) {
-			Logger.getLogger("Minecraft").info("[onPlayerInventoryEvent] Player: " + player.getName() + " has not HOLD permission.");
+			// Logger.getLogger("Minecraft").info("[onPlayerInventoryEvent] Player: " + player.getName() + " has not HOLD permission.");
 			event.setCancelled(true);
 		}
 	}
